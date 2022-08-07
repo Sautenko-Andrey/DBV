@@ -1,0 +1,59 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<p></p>
+<div class="container p-3 mb-2 bg-dark text-white">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12" align="center">
+            <h5><b>Форма регистрации</b></h5>
+            <p><i>* Подробнее о форме регистрации, жми сюда <svg xmlns="http://www.w3.org/2000/svg" width="26" height="12" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg></i><button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Нажать</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title black-text" id="offcanvasWithBothOptionsLabel"><b>Убедительная просьба!</b></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" align="left">
+    <p class="black-text">1) Название команды должно быть адекватным и не вызывающим.</p>
+    <p class="black-text">2) Внимательно указывайте свою категорию ("Основная сетка", "Женщины" или "Ветераны".</p>
+    <p class="black-text">3) В разделе "Игрок" указывать только фамилию и имя.</p>
+    <p class="black-text">4) Если команда представляет два города, указывайте их через "/".</p>
+    <p class="black-text">5) Указывать <b>только один действительный номер телефона!</b></p>
+    <p></p>
+    <p><i>С уважением, Вадим Талубаев.</i></p>
+  </div>
+</div></p>
+
+<form action="{% url 'application' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-error">{{form.non_field_errors}}</div>
+
+{% for f in form %}
+<p><label class="form-label" for="{{f.id_for_label}}">{{f.label}}</label>{{f}}</p>
+<div class="form-error">{{f.errors}}</div>
+{% endfor %}
+
+    <button type="submit" class="btn btn-secondary"><b>ЗАРЕГИСТРИРОВАТЬСЯ</b></button>
+</form>
+
+<p></p>
+<p><i>** После успешной регистрации мы Вам позвоним по указанному номеру для подтверждения участия.</i></p>
+<p><i>*** Взносы для участия производятся по прибытию на турнир.</i></p>
+<p><i>**** Если у Вас возникли вопросы, Вы можете связаться с организатором удобным для Вас способом, нажав сюда </i><svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg><a class="share-instagram" href="{% url 'contacts' %}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+</svg></a></p>
+
+        </div>
+<div class="col-xl-6 col-md-6 col-sm-12" align="center">
+    <img src="{% static 'volley/images/application4.jpg' %}"align="right">
+</div>
+    </div>
+</div>
+
+{% endblock %}

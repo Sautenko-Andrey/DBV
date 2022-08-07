@@ -1,0 +1,72 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="sponsors-background">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12" align="center">
+                <p></p>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <h5><b>#Реклама на этом сайте и/или в наших социальных сетях (youtube | instagram).</b></h5>
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body"><h6 align="left">Мы согласовываем с Вами рекламный макет, определяемся с местом размещения и
+            длительностью рекламной акции. Ваша реклама может появиться как сразу во всех наших информационных ресурсах,
+            так и по отдельности на Ваш выбор.</h6></div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+       <h5><b>#Реклама во время проведения турнира.</b></h5>
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><h6 align="left">Во время проведения турнира, мы  размещаем Вашу рекламу на
+          баннерах, которые будут развешаны по периметру каждого игрового корта, игровых майках и электронных табло.
+      Так же есть возможность наносить временные татуировки на плечи игроков с Вашей рекламой, проговавривать Ваш
+      рекламный слоган (ведущий с микрофоном) на протяжении всего турнира.</h6></div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <h5><b>#Стать титульным спонсором.</b></h5>
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><h6 align="left">Если же Вы хотите стать нашим спонсором на постоянной основе и
+          запускать свои рекламные акции на абсолютно всех наших турнирах на протяжении сезона, то это то,что Вам нужно!
+      Ваша реклама будет делаться на всех ресурсах, начиная от временных татуировок и заканчивая электронными баннерами.</h6></div>
+    </div>
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+<p></p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12" align="left">
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12" align="right">
+<a class="blue-style" href="{% url 'contacts' %}"><h5 align="right"><b> Связаться с организатором </b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg></h5></a>
+    <p></p>
+<a class="blue-style" href="{% url 'sponsors' %}"><h5 align="right"><b> Наши титульные спонсоры </b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg></h5></a>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

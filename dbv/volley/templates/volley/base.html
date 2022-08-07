@@ -1,0 +1,150 @@
+{% load static %}
+{% load volley_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'volley/images/bober.ico' %}">
+
+
+	<title>{{title}}</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+
+	<link type="text/css" href="{% static 'volley/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<table class="table-page" border=0 cellpadding="0" cellspacing="0">
+<tr><td valign=top>
+{% block mainmenu %}
+		<div class="header">
+			<ul id="mainmenu" class="mainmenu">
+			<li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
+{% for m in menu %}
+			<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+{% endfor %}
+				{% if request.user.is_authenticated %}
+
+				<li class="last"> {{user.username}} | <a href="{% url 'logout' %}">Выйти</a> </li>
+				{% else %}
+				<li class="last"><a href="{% url 'register' %}">РЕГИСТРАЦИЯ</a> | <a href="{% url 'login' %}">ВХОД</a>
+				{% endif %}
+			</ul>
+			<div class="clear"></div>
+		</div>
+{% endblock mainmenu %}
+
+
+<table class="table-content" border=0 cellpadding="0" cellspacing="0">
+<tr>
+<!-- Sidebar слева -->
+	<td valign="top" class="left-chapters">
+
+	<ul id="leftchapters">
+		<p></p>
+		<div class="dropdown-center">
+
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    Статьи
+</button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+{% for c in cats %}
+{% if c.article__count > 0 %}
+	{% if c.pk == cat_selected %}
+		<li><button class="dropdown-item" type="button"><li class="selected" ><b>{{c.name}}</b></li></button></li>
+	{% else %}
+		<li><button class="dropdown-item" type="button"><li><a href="{{c.get_absolute_url}}"><b>{{c.name}}</b></a></li></button></li>
+	{% endif %}
+{% endif %}
+{% endfor %}
+	</ul>
+</div>
+		<p></p>
+		<button type="button" class="btn btn-secondary" ><a href="{% url 'application' %}">ЗАЯВИТЬСЯ</a></button>
+		<p></p>
+		<button type="button" class="btn btn-secondary" ><a href="{% url 'sponsors' %}">СПОНСОРЫ</a></button>
+		<p></p>
+		<button type="button" class="btn btn-secondary" ><a href="{% url 'translations' %}">ТРАНСЛЯЦИИ</a></button>
+		<p></p>
+		<button type="button" class="btn btn-secondary" ><a href="{% url 'showfoto' %}">ФОТОГАЛЕРЕЯ</a></button>
+		<p></p>
+		<button type="button" class="btn btn-secondary" ><a href="{% url 'sponsors' %}">О САЙТЕ</a></button>
+		<li class="share">
+		<p>#СОЦСЕТИ</p>
+			
+		<a class="share-yt" href="https://www.youtube.com/channel/UCHWPvP8ci_0PytNblRyDquQ" target="_blank" rel="nofollow"></a>
+		<a class="share-fb" href="https://www.facebook.com/groups/739859163429165/" target="_blank" rel="nofollow"></a>
+
+
+		</li>
+
+
+	</ul>
+</td>
+<!-- Конец Sidebar'а -->
+<td valign="top" class="content">
+	<!-- Хлебные крошки -->
+	{% block breadcrumbs %}
+	{% endblock %}
+
+<!-- Блок контента -->
+	<div class="content-text">
+{% block content %}
+{% endblock %}
+
+{% if page_obj.has_other_pages %}
+<nav class="list-pages">
+	<ul>
+{% if page_obj.has_previous %}
+<li class="page-num">
+	<a href="?page={{page_obj.previous_page_number}}">&lt;</a>
+</li>
+{% endif %}
+		{% for p in paginator.page_range %}
+		{% if page_obj.number == p %}
+		<li class="page-num page-num-selected">{{p}}</li>
+		{% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+		<li class="page-num">
+			<a href="?page={{p}}">{{p}}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+{% if page_obj.has_next %}
+<li class="page-num">
+	<a href="?page={{page_obj.next_page_number}}">&gt;</a>
+</li>
+{% endif %}
+	</ul>
+</nav>
+{% endif %}
+	</div>
+<!-- Конец блока контента -->
+
+</td></tr></table>
+</td></tr>
+<!-- Footer -->
+<tr><td valign=top>
+	<div id="footer">
+		<p>&copy; 2022 DBV. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+	</div>
+</td></tr></table>
+<!-- Конец footer'а и страницы -->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+            crossorigin="anonymous"></script>
+	<script src="{% static 'volley/js/script.js' %}"></script>
+
+<a href="#" class="back-to-top"></a>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 align="center"><span class="badge text-bg-info">АВТОРИЗАЦИЯ</span><img src="{% static 'volley/images/authorized4.jpg' %}"align="right"></h1>
+<p></p>
+
+<form method="post" align="center">
+    {% csrf_token %}
+
+    <div class="form-error">{{form.non_field_errors}}</div>
+
+{% for f in form %}
+<p><label class="form-label" for="{{f.id_for_label}}">{{f.label}}:</label>{{f}}</p>
+<div class="form-error">{{f.errors}}</div>
+{% endfor %}
+    <button type="submit" class="btn btn-info"><b>ВОЙТИ</b></button>
+</form>
+
+{% endblock %}

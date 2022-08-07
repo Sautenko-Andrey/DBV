@@ -1,0 +1,29 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="choose-player-sex-style">
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12" align="right">
+
+        </div>
+
+        <div class="col-xl-6 col-md-6 col-sm-12" align="left">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="{% url 'players' %}" class="btn btn-outline-info"><h4><b>МУЖЧИНЫ</b></h4></a> <a href="{% url 'w_players' %}" class="btn btn-outline-info"><h4><b>ЖЕНЩИНЫ</b></h4></a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

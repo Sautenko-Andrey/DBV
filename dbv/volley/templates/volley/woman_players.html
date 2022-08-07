@@ -1,0 +1,46 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12" align="center">
+            <h1><b>DBV ИГРОКИ</b></h1>
+            <p></p>
+            <h4><b>ЖЕНЩИНЫ</b></h4>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+      <div class="row">
+          {% for p in players %}
+          {% if p.sex_id == 2 %}
+          <div class="col-xl-4 col-md-6 col-sm-12" align="center">
+
+              <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+  <img src="{{p.photo.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{p.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Категория: {{p.sex}}</li>
+    <li class="list-group-item">Возраст: {{p.age}}</li>
+    <li class="list-group-item">Рост: {{p.height}} см</li>
+    <li class="list-group-item">Город: {{p.city}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{{p.instagram}}" class="card-link white-style" target="_blank">Instagram</a>
+    <a href="{{ p.get_absolute_url }}" class="card-link white-style">Подробнее</a>
+  </div>
+</div>
+
+          </div>
+          {% endif %}
+          {% endfor %}
+      </div>
+</div>
+
+{% endblock %}

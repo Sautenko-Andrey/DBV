@@ -1,0 +1,13 @@
+:root {
+    --color1:#000000;
+    --color2:#FFD700;
+}
+section {
+    padding: 50px 0;
+}
+
+header {
+    background: #202020;
+    position: fixed;
+}
+

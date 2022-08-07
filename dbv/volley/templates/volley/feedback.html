@@ -1,0 +1,33 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-xl-6 col-md-6 col-sm-12" align="left">
+            <h4 align="center"><span class="badge text-bg-secondary">Форма заполнения</span></h4>
+
+<form action="{% url 'feedback' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-error">{{form.non_field_errors}}</div>
+
+{% for f in form %}
+<p><label class="form-label" for="{{f.id_for_label}}">{{f.label}}</label>{{f}}</p>
+<div class="form-error">{{f.errors}}</div>
+{% endfor %}
+
+    <button type="submit" class="btn btn-info"><b>ОТПРАВИТЬ</b></button>
+</form>
+        </div>
+
+        <div class="col-xl-6 col-md-6 col-sm-12" align="center">
+            <img src="{% static 'volley/images/feedback2.png' %}"align="right">
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

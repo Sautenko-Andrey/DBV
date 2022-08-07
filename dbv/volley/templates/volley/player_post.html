@@ -1,0 +1,27 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+      <div class="row">
+          <div class="col-xl-6 col-md-12 col-sm-12" align="center">
+              <h1 align="left"><b>{{player.name}}</b></h1>
+              <p></p>
+              <h4 align="left"><i>{{player.content | linebreaks}}</i></h4>
+              <p></p>
+              <a class="refer-color" href="{% url 'ranking' %}"><h5 align="left">Посмотреть таблицу рейтингов <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg></h5></a>
+          </div>
+
+          <div class="col-xl-6 col-md-12 col-sm-12" align="center">
+              <img src="{{player.photo.url}}">
+          </div>
+
+      </div>
+</div>
+
+
+
+{% endblock %}

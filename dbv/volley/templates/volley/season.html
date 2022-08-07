@@ -1,0 +1,45 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="table-style">
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12" align="center">
+            <p></p>
+            <h1><b>Зарегестрированные команды <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+</svg></b></h1>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-dark table-striped table-bordered table-hover table-sm">
+    <thead class="table-dark">
+        <tr align="center">
+            <th>#</th>
+            <th>Команда</th>
+            <th>Игроки</th>
+            <th>Город</th>
+            <th>Рейтинг</th>
+            <th>Категория</th>
+        </tr>
+    </thead>
+    {% for t in teams %}
+    <tbody>
+        <tr>
+            <td class="table-place" align="center">{{t.id}}</td>
+            <td class="table-name" align="center">{{t.team_name}}</td>
+            <td class="table-second-name" align="center">{{t.player_1}}/{{t.player_2}}</td>
+            <td class="table-set-difference" align="center">{{t.city}}</td>
+            <td class="table-place" align="center">{{t.rank}}</td>
+            <td class="table-set-difference" align="center">{{t.tour_category}}</td>
+        </tr>
+
+    </tbody>
+    {% endfor %}
+
+</table>
+</div>
+{% endblock %}

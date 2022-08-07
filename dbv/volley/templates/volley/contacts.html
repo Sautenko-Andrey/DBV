@@ -1,0 +1,30 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="contacts">
+
+<div class="container">
+      <div class="row">
+        <div class="list-articles">
+    {% for org in organizators %}
+<div class="col-xl-4 col-md-6 col-sm-12" align="center">
+  <p></p>
+<div class="card text-bg-dark mb-3" style="width: 18rem;">
+  <img src="{{org.photo.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h3 class="card-title" align="center"><b>{{org.name}}</b></h3>
+    <p class="card-text"><h5><i>{{org.content}}</i></h5><h4>телефон: <b>{{org.phone}}</b></h4></p>
+    <a href="https://www.instagram.com/anteysport.print/" class="btn btn-info" target="_blank">Instagram</a>
+  </div>
+</div>
+  <p></p>
+</div>
+        </div>
+      </div>
+
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock %}

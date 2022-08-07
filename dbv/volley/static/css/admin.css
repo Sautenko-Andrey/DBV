@@ -1,0 +1,46 @@
+#header,.module caption, .module h2 {
+    background: #000000;
+}
+
+#branding h1 a:visited, .module h2 {
+    color: #25cff2;
+}
+
+#user-tools {
+    color: #25cff2;
+}
+
+#header a:visited {
+   color: #25cff2;
+}
+
+#header a:link {
+    color: #25cff2;
+}
+
+a:visited, a:link {
+    color: #000000;
+}
+
+
+div.breadcrumbs {
+    background: #444;
+    color: #eeeeee;
+}
+
+
+#nav-sidebar .current-app .section:link, a.section:link {
+    color: #25cff2;
+}
+
+#changelist-filter li.selected a {
+    color: #25cff2;
+}
+
+.submit-row input, .submit-row input.default {
+    background: #444;
+}
+
+input[type=submit].default {
+    background: #25cff2;
+}

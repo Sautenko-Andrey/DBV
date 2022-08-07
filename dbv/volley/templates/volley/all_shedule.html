@@ -1,0 +1,45 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<p></p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 col-md-12 col-sm-12" align="center">
+            <p></p>
+            <h3><b>Расписание всех турниров DBV-2022</b></h3>
+            <p></p>
+            <h1><img src="{% static 'volley/images/bober.png' %}"></h1>
+        </div>
+        <div class="col-xl-6 col-md-12 col-sm-12" align="left">
+            <p></p>
+            <h3 align="center"><b>#beachvolley</b></h3>
+            <p></p>
+            <div class="ratio ratio-16x9">
+  <iframe src="{% static 'volley/images/intro.mp4' %}" title="YouTube video" allowfullscreen></iframe>
+</div>
+        </div>
+    </div>
+</div>
+<p></p>
+
+<div class="container p-3 mb-2 bg-dark text-white">
+    <div class="row">
+        {% for s in mutual_shedule %}
+        <div class="col-xl-4 col-md-6 col-sm-12" align="center">
+
+            <div class="card border-dark mb-3" style="width: 18rem;">
+  <img src="{{s.picture.url}}" class="card-img-top" alt="...">
+  <div class="card-body text-dark">
+      <h5 class="card-title"><b>{{s.name}} <img class="size-shedule" src="{% static 'volley/images/shedule_icon.png' %}"></b></h5>
+    <p class="card-text">{{s.date}}</p>
+      <a href="{{ s.get_absolute_url }}" class="btn btn-info"><b>Подробнее о туре</b></a>
+  </div>
+</div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

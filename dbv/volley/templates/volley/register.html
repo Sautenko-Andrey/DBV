@@ -1,0 +1,18 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 align="center"><span class="badge text-bg-info">РЕГИСТРАЦИЯ</span><img src="{% static 'volley/images/register.jpg' %}"align="right"></h1>
+
+<form method="post" align="center">
+    {% csrf_token %}
+
+{% for f in form %}
+<p><label class="form-label" for="{{f.if_for_label}}">{{f.label}}:</label>{{f}}</p>
+<div class="form-error">{{f.errors}}</div>
+{% endfor %}
+
+    <button type="submit" class="btn btn-info"><b>OK</b></button>
+</form>
+
+{% endblock %}

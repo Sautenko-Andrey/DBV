@@ -1,0 +1,126 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<p></p>
+{% for item in video %}
+
+<div class="container p-3 mb-2 bg-dark text-white">
+    <div class="row">
+        <p></p>
+
+        <div class="col-xl-4 col-md-6 col-sm-12" align="center">
+            <img class="img-article-left thumb" src="{{item.picture.url}}">
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12" align="center">
+            <br>
+            <br>
+
+            <h5><b>Ссылки на трансляции: </b></h5>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+  <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+</svg>
+
+            <br>
+            <br>
+            <a href="{{item.refer}}" class="btn btn-outline-info" target="_blank"><b>{{item.name}}</b></a>
+            <p></p>
+            {% if item.name_2 %}
+            <a href="{{item.refer_2}}" class="btn btn-outline-info" target="_blank"><b>{{item.name_2}}</b></a>
+            <p></p>
+            {% else %}
+            <p></p>
+            {% endif %}
+            {% if item.name_3 %}
+            <a href="{{item.refer_3}}" class="btn btn-outline-info" target="_blank"><b>{{item.name_3}}</b></a>
+            {% else %}
+            <p></p>
+            {% endif %}
+        </div>
+
+        <div class="col-xl-4 col-md-6 col-sm-12" align="center">
+            <br>
+            <br>
+
+            <h5><b>Информация о трансляции: </b></h5>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+  <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+</svg>
+            <br>
+            <br>
+            <button class="btn btn-outline-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><b>Читать</b></button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title black-text" id="offcanvasRightLabel"><b>Сегодня в программе:</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <h5 class="black-text" align="left"><i>{{item.info}}</i></h5>
+                <br>
+                <br>
+                <br>
+                <h1><img src="{% static 'volley/images/bober.png' %}"></h1>
+  </div>
+</div>
+
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-6 col-sm-12" align="center">
+            <p><b>Трансляции проводятся при поддержке: </b></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <p></p>
+            <div><a href="https://www.hitfm.ua/" target="_blank"><img src="{% static 'volley/images/hit_fm1.png' %}"></a></div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <div><a href="https://kmw.com.ua//" target="_blank"><img src="{% static 'volley/images/karpatska_logo.png' %}"></a></div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <p class="hidden-style">1</p>
+            <p></p>
+            <div><a href="https://forum-avto.info/" target="_blank"><img src="{% static 'volley/images/forumavto.png' %}"></a></div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <div><a href="https://www.kramtechcenter.com.ua/" target="_blank"><img src="{% static 'volley/images/ktc.png' %}"></a></div>
+        </div>
+        <p></p>
+        <p class="hidden-style">1</p>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <div><a href="http://nkmz.com/" target="_blank"><img src="{% static 'volley/images/nkmz.png' %}"></a></div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <div><a href="https://www.instagram.com/smart_prices_/" target="_blank"><img src="{% static 'volley/images/sp.png' %}"></a></div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <div><a href="http://rodina.mk/" target="_blank"><img src="{% static 'volley/images/rodina.png' %}"></a></div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 col-sm-12" align="center">
+            <div><a href="http://www.slavutich.com/" target="_blank"><img src="{% static 'volley/images/slavutich2.png' %}"></a></div>
+        </div>
+
+
+    </div>
+</div>
+
+
+{% endblock %}

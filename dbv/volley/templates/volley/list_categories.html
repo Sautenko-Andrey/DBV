@@ -1,0 +1,16 @@
+<div class="dropdown-center">
+
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    Статьи
+</button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+{% for c in cats %}
+	{% if c.pk == cat_selected %}
+		<li><button class="dropdown-item" type="button"><li class="selected">{{c.name}}</li></button></li>
+	{% else %}
+		<li><button class="dropdown-item" type="button"><li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li></button></li>
+	{% endif %}
+{% endfor %}
+	</ul>
+</div>

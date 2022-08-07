@@ -1,0 +1,68 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12" align="center">
+            <p></p>
+            <h1><b>Чемпионат DBV 2022</b></h1>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped table-bordered table-hover table-sm tcont countLines">
+    <thead class="table-dark">
+        <tr align="center">
+            <th>Место</th>
+            <th>Команда</th>
+            <th>Игроки</th>
+            <th>ВП/ПП</th>
+            <th>Туры</th>
+            <th>Очки</th>
+        </tr>
+    </thead>
+    {% for i in info %}
+    <tbody>
+        <tr class="table-info">
+            <td class="table-place" align="center"></td>
+            <td class="table-name" align="center">{{i.team_name}}</td>
+            <td class="table-second-name" align="center">{{i.second_names}}</td>
+            <td class="table-set-difference" align="center">{{i.set_difference}}</td>
+            <td class="table-place" align="center">{{i.count_tours}}</td>
+            <td class="table-set-difference" align="center">{{i.points}}</td>
+        </tr>
+
+    </tbody>
+    {% endfor %}
+</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12" align="center">
+            <p></p>
+            <h4 align="left">
+  <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+    Пояснения к таблице*
+  </button>
+</p>
+<div style="min-height: 120px;">
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div class="card card-body" style="width: 300px;">
+      <h5><i><b>Колонка "ВП/ПП"</b> данной таблицы означает соотношение выигранных партий к проигранным.</i></h5>
+      <h5><i><b>Колонка "Туры"</b> данной таблицы показывает сколько туров сыграла команда на данный момент.</i></h5>
+      <a class="red-style" href="{% url 'contacts' %}"><h6 align="left"><b>Связаться с организатором </b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg></h6></a>
+    </div>
+  </div>
+</div></h4>
+            <p></p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

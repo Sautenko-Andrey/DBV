@@ -1,0 +1,70 @@
+{% extends 'volley/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="ranking-style">
+<br>
+<div class="container text-white">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12" align="center">
+            <h4 class="white-blue-style"><b>Мужской индивидуальный рейтинг</b></h4>
+            <table class="table table-striped table-hover tcont countLines">
+    <thead class="table-dark">
+        <tr align="center">
+            <th>Место</th>
+            <th>Игрок</th>
+            <th>Город</th>
+            <th>Рейтинг</th>
+        </tr>
+    </thead>
+    {% for item in player %}
+    {% if item.sex_id == 1 %}
+    <tbody>
+        <tr class="table-light">
+            <td class="table-place" align="center"></td>
+            <td class="table-name" align="center"><b>{{item.name}}</b></td>
+            <td class="table-name" align="center"><i>{{item.city}}</i></td>
+            <td class="table-place" align="center"><b>{{item.rank}}</b></td>
+        </tr>
+
+    </tbody>
+    {% endif %}
+    {% endfor %}
+</table>
+
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12" align="center">
+            <h4 class="white-blue-style"><b>Женский индивидуальный рейтинг</b></h4>
+            <table class="table table-striped table-hover tcont countLines">
+    <thead class="table-dark">
+        <tr align="center">
+            <th>Место</th>
+            <th>Игрок</th>
+            <th>Город</th>
+            <th>Рейтинг</th>
+        </tr>
+    </thead>
+    {% for item in player %}
+    {% if item.sex_id == 2 %}
+    <tbody>
+        <tr class="table-light">
+            <td class="table-place" align="center"></td>
+            <td class="table-name" align="center"><b>{{item.name}}</b></td>
+            <td class="table-name" align="center"><i>{{item.city}}</i></td>
+            <td class="table-place" align="center"><b>{{item.rank}}</b></td>
+        </tr>
+
+    </tbody>
+    {% endif %}
+    {% endfor %}
+</table>
+        </div>
+    </div>
+</div>
+</div>
+<div class="ranking-style">
+</div>
+<div class="ranking-style">
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'volley/base.html' %}
+
+{% block content %}
+
+<p align="center"><b>ФОТОГАЛЕРЕЯ</b></p>
+<div class="container">
+  <div class="row">
+        {% for item in tour %}
+      <div class="col-6"><div class="card" style="width: 18rem;">
+      <img src="{{item.title_photo.url}}" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title" align="center">Альбом</h5>
+    <p class="card-text" align="center">{{item.name}}</p>
+    <a href="{% url 'showfoto' %}" class="btn btn-info">Посмотреть</a>
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}
